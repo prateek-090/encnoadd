@@ -30,6 +30,7 @@ from tobrot.plugins.status_message_fn import (
     status_message_f,
     cancel_message_f,
     exec_message_f,
+    evaluation_cmd_t,
     upload_document_f
 )
 from tobrot.plugins.call_back_button_handler import button
@@ -83,7 +84,7 @@ if __name__ == "__main__" :
     app.add_handler(exec_message_handler)
     #
     eval_message_handler = MessageHandler(
-        eval,
+        evaluation_cmd_t,
         filters=Filters.command(["eval"]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(eval_message_handler)
