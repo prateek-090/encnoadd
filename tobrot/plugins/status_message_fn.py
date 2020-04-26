@@ -147,6 +147,10 @@ async def evaluation_cmd_t(client, message):
 
     cmd = message.text.split(" ", maxsplit=1)[1]
 
+        reply_to_id = message.message_id
+    if message.reply_to_message:
+        reply_to_id = message.reply_to_message.message_id
+        
     old_stderr = sys.stderr
     old_stdout = sys.stdout
     redirected_output = sys.stdout = io.StringIO()
@@ -179,9 +183,11 @@ async def evaluation_cmd_t(client, message):
         with open("eval.text", "w+", encoding="utf8") as out_file:
             out_file.write(str(final_output))
         await client.send_document(
+            chat_id=message.chat.id,
             document="eval.text",
             caption=cmd,
-            disable_notification=True
+            disable_notification=True,
+            reply_to_message_id=reply_to_id
         )
         os.remove("eval.text")
         await message.delete()
