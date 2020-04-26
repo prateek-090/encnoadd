@@ -12,14 +12,14 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 import asyncio
-import inspect
 import os
 import time
-import sys
 import traceback
+import sys
 
 from tobrot import (
-    MAX_MESSAGE_LENGTH
+    MAX_MESSAGE_LENGTH,
+    PROCESS_RUNNING
 )
 
 
@@ -140,13 +140,10 @@ async def exec_message_f(client, message):
         else:
             await message.reply_text(OUTPUT)
             
-async def eval(client, message):
-    await message.edit("Processing ...")
-    cmd = message.text.split(" ", maxsplit=1)[1]
+async def evaluation_cmd_t(client, message):
+    status_message = await message.reply_text(PROCESS_RUNNING, quote=True)
 
-    reply_to_id = message.message_id
-    if message.reply_to_message:
-        reply_to_id = message.reply_to_message.message_id
+    cmd = message.text.split(" ", maxsplit=1)[1]
 
     old_stderr = sys.stderr
     old_stdout = sys.stdout
@@ -179,17 +176,15 @@ async def eval(client, message):
     if len(final_output) > MAX_MESSAGE_LENGTH:
         with open("eval.text", "w+", encoding="utf8") as out_file:
             out_file.write(str(final_output))
-        await client.send_document(
-            chat_id=message.chat.id,
+        await status_message.reply_document(
             document="eval.text",
             caption=cmd,
-            disable_notification=True,
-            reply_to_message_id=reply_to_id
+            disable_notification=True
         )
         os.remove("eval.text")
-        await message.delete()
+        await status_message.delete()
     else:
-        await message.edit(final_output)
+        await status_message.edit(final_output)
 
 
 async def aexec(code, client, message):
@@ -198,6 +193,7 @@ async def aexec(code, client, message):
         ''.join(f'\n {l}' for l in code.split('\n'))
     )
     return await locals()['__aexec'](client, message)
+        
 
 async def upload_document_f(client, message):
     imsegd = await message.reply_text(
