@@ -178,15 +178,15 @@ async def evaluation_cmd_t(client, message):
     if len(final_output) > MAX_MESSAGE_LENGTH:
         with open("eval.text", "w+", encoding="utf8") as out_file:
             out_file.write(str(final_output))
-        await status_message.reply_document(
+        await client.send_document(
             document="eval.text",
             caption=cmd,
             disable_notification=True
         )
         os.remove("eval.text")
-        await status_message.delete()
+        await message.delete()
     else:
-        await status_message.edit(final_output)
+        await message.edit(final_output)
 
 
 async def aexec(code, client, message):
