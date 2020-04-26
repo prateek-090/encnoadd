@@ -18,10 +18,6 @@ import traceback
 import sys
 
 
-from pyrogram import (
-    Client,
-    Filters
-)
 
 from tobrot import (
     MAX_MESSAGE_LENGTH,
@@ -146,7 +142,6 @@ async def exec_message_f(client, message):
         else:
             await message.reply_text(OUTPUT)
     
-@Client.on_message(Filters.command([EVAL_CMD_TRIGGER]) & Filters.chat(AUTH_USERS))   
 async def evaluation_cmd_t(client, message):
     status_message = await message.reply_text(PROCESS_RUNNING, quote=True)
 
