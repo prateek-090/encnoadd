@@ -19,7 +19,8 @@ from tobrot import (
     TG_BOT_TOKEN,
     APP_ID,
     API_HASH,
-    AUTH_CHANNEL
+    AUTH_CHANNEL,
+    EXEC_CMD_TRIGGER
 )
 
 from pyrogram import Client, Filters, MessageHandler, CallbackQueryHandler
@@ -79,7 +80,7 @@ if __name__ == "__main__" :
     #
     exec_message_handler = MessageHandler(
         exec_message_f,
-        filters=Filters.command(["exec"]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([EXEC_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(exec_message_handler)
     #
