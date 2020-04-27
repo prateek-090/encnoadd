@@ -34,6 +34,10 @@
       "description": "get this value from @BotFather",
       "value": ""
     },
+    "EXEC_CMD_TRIGGER": {
+      "description": "EXEC command trigger",
+      "required": false
+    },
     "AUTH_CHANNEL": {
       "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
       "value": ""
