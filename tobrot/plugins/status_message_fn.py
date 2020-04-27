@@ -12,16 +12,14 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 import asyncio
+import inspect
 import os
 import time
-import traceback
 import sys
-
-
+import traceback
 
 from tobrot import (
-    MAX_MESSAGE_LENGTH,
-    PROCESS_RUNNING
+    MAX_MESSAGE_LENGTH
 )
 
 
@@ -141,16 +139,15 @@ async def exec_message_f(client, message):
             await message.delete()
         else:
             await message.reply_text(OUTPUT)
-    
-async def evaluation_cmd_t(client, message):
-    status_message = await message.reply_text(PROCESS_RUNNING, quote=True)
-
+            
+async def eval_message_f(client, message):
+    await message.edit("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
 
-        reply_to_id = message.message_id
+    reply_to_id = message.message_id
     if message.reply_to_message:
         reply_to_id = message.reply_to_message.message_id
-        
+
     old_stderr = sys.stderr
     old_stdout = sys.stdout
     redirected_output = sys.stdout = io.StringIO()
@@ -201,7 +198,6 @@ async def aexec(code, client, message):
         ''.join(f'\n {l}' for l in code.split('\n'))
     )
     return await locals()['__aexec'](client, message)
-        
 
 async def upload_document_f(client, message):
     imsegd = await message.reply_text(
