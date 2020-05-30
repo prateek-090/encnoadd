@@ -1,6 +1,6 @@
 {
   "name": "Telegram Torrent Leecher",
-  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram. Powered by @ThankTelegram!",
+  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram.",
   "keywords": [
     "telegram",
     "best",
@@ -15,7 +15,7 @@
     "leecher"
   ],
   "repository": "https://github.com/Anonymous5945/test-3",
-  "success_url": "https://telegram.dog/ThankTelegram",
+  "success_url": "https://github.com/Anonymous5945/test-3",
   "website": "https://github.com/Anonymous5945/test-3",
   "env": {
     "ENV": {
