@@ -54,6 +54,34 @@
       "description": "upload command trigger",
       "required": false
     },
+    "Cancel_CMD_TRIGGER": {
+
+      "description": "cancel command trigger",
+
+      "required": false
+
+    },
+    "Rename_CMD_TRIGGER": {
+
+      "description": "rename command trigger",
+
+      "required": false
+
+    },
+    "Save_Thumb_CMD_TRIGGER": {
+
+      "description": "Save thumbnail command trigger",
+
+      "required": false
+
+    },
+    "Clear_thumb_CMD_TRIGGER": {
+
+      "description": "clear  thumbnail command trigger",
+
+      "required": false
+
+    },
     "AUTH_CHANNEL": {
       "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
       "value": ""
