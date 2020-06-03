@@ -38,6 +38,22 @@
       "description": "EXEC command trigger",
       "required": false
     },
+    "Eval_CMD_TRIGGER": {
+      "description": "Eval command trigger",
+      "required": false
+    },
+    "Ytdl_CMD_TRIGGER": {
+      "description": "ytdl command trigger",
+      "required": false
+    },
+    "Leech_CMD_TRIGGER": {
+      "description": "leech command trigger",
+      "required": false
+    },
+    "Upload_CMD_TRIGGER": {
+      "description": "upload command trigger",
+      "required": false
+    },
     "AUTH_CHANNEL": {
       "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
       "value": ""
