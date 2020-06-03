@@ -142,6 +142,7 @@ async def exec_message_f(client, message):
             
 async def eval_message_f(client, message):
     await message.edit("Processing ...")
+    
     cmd = message.text.split(" ", maxsplit=1)[1]
 
     reply_to_id = message.message_id
