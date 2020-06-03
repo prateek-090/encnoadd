@@ -20,15 +20,15 @@ from tobrot import (
     APP_ID,
     API_HASH,
     AUTH_CHANNEL,
-    EXEC_CMD_TRIGGER
-    Leech_CMD_TRIGGER
-    Ytdl_CMD_TRIGGER
-    Status_CMD_TRIGGER
-    Cancel_CMD_TRIGGER
-    Eval_CMD_TRIGGER
-    Rename_CMD_TRIGGER
-    Upload_CMD_TRIGGER
-    Save_Thumb_CMD_TRIGGER
+    EXEC_CMD_TRIGGER,
+    Leech_CMD_TRIGGER,
+    Ytdl_CMD_TRIGGER,
+    Status_CMD_TRIGGER,
+    Cancel_CMD_TRIGGER,
+    Eval_CMD_TRIGGER,
+    Rename_CMD_TRIGGER,
+    Upload_CMD_TRIGGER,
+    Save_Thumb_CMD_TRIGGER,
     Clear_thumb_CMD_TRIGGER
 )
 
