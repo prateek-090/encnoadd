@@ -142,8 +142,7 @@ async def exec_message_f(client, message):
             await message.reply_text(OUTPUT)
             
 async def eval_message_f(client, message):
-    await message.edit("Processing ...")
-    
+    status_message = await message.reply_text("Processing ...")    
     cmd = message.text.split(" ", maxsplit=1)[1]
 
     reply_to_id = message.message_id
@@ -176,12 +175,14 @@ async def eval_message_f(client, message):
     else:
         evaluation = "Success"
 
-    final_output = "**EVAL**: ```{}```\n\n**OUTPUT**:\n```{}``` \n".format(cmd, evaluation.strip())
-
+    final_output = "<b>EVAL</b>: <code>{}</code>\n\n<b>OUTPUT</b>:\n<code>{}</code> \n".format(
+        cmd,
+        evaluation.strip()
+    )
     if len(final_output) > MAX_MESSAGE_LENGTH:
         with open("eval.text", "w+", encoding="utf8") as out_file:
             out_file.write(str(final_output))
-        await client.send_document(
+        await message.reply_document(
             chat_id=message.chat.id,
             document="eval.text",
             caption=cmd,
@@ -189,10 +190,9 @@ async def eval_message_f(client, message):
             reply_to_message_id=reply_to_id
         )
         os.remove("eval.text")
-        await message.delete()
+        await status_message.delete()
     else:
-        await message.edit(final_output)
-
+        await status_message.edit(final_output)
 
 async def aexec(code, client, message):
     exec(
