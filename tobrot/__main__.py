@@ -56,25 +56,25 @@ if __name__ == "__main__" :
     #
     incoming_message_handler = MessageHandler(
         incoming_message_f,
-        filters=Filters.command([leech_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Leech_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_message_handler)
     #
     incoming_youtube_dl_handler = MessageHandler(
         incoming_youtube_dl_f,
-        filters=Filters.command([ytdl_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Ytdl_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_youtube_dl_handler)
     #
     status_message_handler = MessageHandler(
         status_message_f,
-        filters=Filters.command([status_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Status_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(status_message_handler)
     #
     cancel_message_handler = MessageHandler(
         cancel_message_f,
-        filters=Filters.command([cancel_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Cancel_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(cancel_message_handler)
     #
@@ -92,13 +92,13 @@ if __name__ == "__main__" :
     #
     rename_message_handler = MessageHandler(
         rename_message_f,
-        filters=Filters.command([rename_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Rename_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(rename_message_handler)
     #
     upload_document_handler = MessageHandler(
         upload_document_f,
-        filters=Filters.command([upload_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Upload_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(upload_document_handler)
 
@@ -127,13 +127,13 @@ if __name__ == "__main__" :
     #
     save_thumb_nail_handler = MessageHandler(
         save_thumb_nail,
-        filters=Filters.command([save_Thumb_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Save_Thumb_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(save_thumb_nail_handler)
     #
     clear_thumb_nail_handler = MessageHandler(
         clear_thumb_nail,
-        filters=Filters.command([clear_thumb_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
+        filters=Filters.command([Clear_thumb_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(clear_thumb_nail_handler)
     #
