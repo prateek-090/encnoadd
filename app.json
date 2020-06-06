@@ -113,6 +113,10 @@
   }, {
     "url": "https://github.com/Anonymous5945/heroku-buildpack-rarlab"
   }, {
+    "url": "https://github.com/Anonymous5945/heroku-buildpack-plowshare"
+  }, {
+    "url": "https://github.com/Anonymous5945/heroku-buildpack-p7zip"
+  }, {
     "url": "https://github.com/amivin/aria2-heroku"
   }, {
     "url": "heroku/python"
