@@ -8,3 +8,5 @@ tgcrypto
 asyncio
 beautifulsoup4
 youtube-dl
+spotdl
+srt
