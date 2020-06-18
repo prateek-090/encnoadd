@@ -109,7 +109,7 @@
   "addons": [
   ],
   "buildpacks": [{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    "url": "https://github.com/Anonymous5945/heroku-buildpack-ffmpeg-latest"
   }, {
     "url": "https://github.com/Anonymous5945/heroku-buildpack-rarlab"
   }, {
@@ -117,7 +117,9 @@
   }, {
     "url": "https://github.com/Anonymous5945/heroku-buildpack-p7zip"
   }, {
-    "url": "https://github.com/amivin/aria2-heroku"
+    "url": "https://github.com/Anonymous5945/aria2-heroku"
+  }, {
+    "url": "https://github.com/Anonymous5945/rclone-heroku"
   }, {
     "url": "heroku/python"
   }],
