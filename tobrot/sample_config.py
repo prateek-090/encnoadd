@@ -15,7 +15,7 @@ class Config(object):
     EXEC_CMD_TRIGGER = os.environ.get("EXEC_CMD_TRIGGER", "exec")
     # Telegram maximum file upload size
     MAX_FILE_SIZE = 50000000
-    TG_MAX_FILE_SIZE = 1572864000
+    TG_MAX_FILE_SIZE = 2097152000
     FREE_USER_MAX_FILE_SIZE = 50000000
     # chunk size that should be used with requests
     CHUNK_SIZE = int(os.environ.get("CHUNK_SIZE", 128))
