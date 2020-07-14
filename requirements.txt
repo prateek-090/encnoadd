@@ -10,3 +10,4 @@ beautifulsoup4
 youtube-dl
 spotdl
 srt
+streamlink
