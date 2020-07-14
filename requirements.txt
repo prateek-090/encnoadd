@@ -12,3 +12,4 @@ spotdl
 srt
 streamlink
 git+https://github.com/Anonymous5945/Subscene-Subtitle-Grabber
+scrapy
