@@ -54,6 +54,13 @@
       "description": "upload command trigger",
       "required": false
     },
+    "Status_CMD_TRIGGER": {
+
+      "description": "status command trigger",
+
+      "required": false
+  
+    },
     "Cancel_CMD_TRIGGER": {
 
       "description": "cancel command trigger",
