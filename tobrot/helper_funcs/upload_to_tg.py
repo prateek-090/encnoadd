@@ -26,6 +26,9 @@ from tobrot import (
     TG_MAX_FILE_SIZE,
     EDIT_SLEEP_TIME_OUT,
     DOWNLOAD_LOCATION,
+    DO_CAPTION_1,
+    DO_CAPTION_2,
+    DO_CAPTION_3
 )
 
 
@@ -37,14 +40,13 @@ async def upload_to_tg(
 ):
     LOGGER.info(local_file_name)
     base_file_name = os.path.basename(local_file_name)
-    index_of_dot = base_file_name.index('.')
-    base_new_name = base_file_name[:index_of_dot]
+    base_new_name = os.path.splitext(base_file_name)[0]
     caption_str = ""
     caption_str += "<code>"
     caption_str += base_new_name
-    caption_str += ".Enc.&.Upl'd.by.Team.D&O-"
+    caption_str += DO_CAPTION_1
     caption_str += "</code>"
-    caption_str += "@dramaOST"
+    caption_str += DO_CAPTION_2
     caption_str += "<code>"
     caption_str += ".mkv"
     caption_str += "</code>"
@@ -52,7 +54,7 @@ async def upload_to_tg(
     # caption_str += "<a href='tg://user?id="
     # caption_str += str(from_user)
     # caption_str += "'>"
-    caption_str += "Muxed English Subtitle"
+    caption_str += DO_CAPTION_3
     # caption_str += "</a>"
     if os.path.isdir(local_file_name):
         directory_contents = os.listdir(local_file_name)
