@@ -86,6 +86,18 @@
       "required": false
 
     },
+    "DO_CAPTION_1": {
+      "description": ".Enc.&.Upl'd.by.Team.D&O-",
+      "required": false
+    },
+    "DO_CAPTION_2": {
+      "description": "@dramaOST",
+      "required": false
+    },
+    "DO_CAPTION_3": {
+      "description": "Muxed English Subtitle",
+      "required": false
+    },
     "AUTH_CHANNEL": {
       "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
       "value": ""
