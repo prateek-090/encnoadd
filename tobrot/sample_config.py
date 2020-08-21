@@ -48,7 +48,7 @@ class Config(object):
     Save_Thumb_CMD_TRIGGER = os.environ.get("Save_Thumb_CMD_TRIGGER", "savethumbnail")
     # clear thumbnail command
     Clear_thumb_CMD_TRIGGER = os.environ.get("Clear_thumb_CMD_TRIGGER", "clearthumbnail")
-    DO_CAPTION_1 = os.environ.get("DO_CAPTION_1", "upload")
-    DO_CAPTION_2 = os.environ.get("DO_CAPTION_2", "upload")
-    DO_CAPTION_3 = os.environ.get("DO_CAPTION_3", "upload")
+    DO_CAPTION_1 = os.environ.get("DO_CAPTION_1", "")
+    DO_CAPTION_2 = os.environ.get("DO_CAPTION_2", "")
+    DO_CAPTION_3 = os.environ.get("DO_CAPTION_3", "")
     
