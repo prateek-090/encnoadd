@@ -39,3 +39,6 @@ Rename_CMD_TRIGGER = Config.Rename_CMD_TRIGGER
 Upload_CMD_TRIGGER = Config.Upload_CMD_TRIGGER
 Save_Thumb_CMD_TRIGGER = Config.Save_Thumb_CMD_TRIGGER
 Clear_thumb_CMD_TRIGGER =Config.Clear_thumb_CMD_TRIGGER
+DO_CAPTION_1 = Config.DO_CAPTION_1
+DO_CAPTION_2 = Config.DO_CAPTION_2
+DO_CAPTION_3 = Config.DO_CAPTION_3
