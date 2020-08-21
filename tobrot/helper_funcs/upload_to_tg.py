@@ -25,7 +25,7 @@ from tobrot.helper_funcs.copy_similar_file import copy_file
 from tobrot import (
     TG_MAX_FILE_SIZE,
     EDIT_SLEEP_TIME_OUT,
-    DOWNLOAD_LOCATION
+    DOWNLOAD_LOCATION,
 )
 
 
@@ -37,9 +37,16 @@ async def upload_to_tg(
 ):
     LOGGER.info(local_file_name)
     base_file_name = os.path.basename(local_file_name)
+    index_of_dot = base_file_name.index('.')
+    base_new_name = base_file_name[:index_of_dot]
     caption_str = ""
     caption_str += "<code>"
-    caption_str += base_file_name
+    caption_str += base_new_name
+    caption_str += ".Enc.&.Upl'd.by.Team.D&O-"
+    caption_str += "</code>"
+    caption_str += "@dramaOST"
+    caption_str += "<code>"
+    caption_str += ".mkv"
     caption_str += "</code>"
     caption_str += "\n\n"
     # caption_str += "<a href='tg://user?id="
