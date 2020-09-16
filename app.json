@@ -36,53 +36,59 @@
     },
     "EXEC_CMD_TRIGGER": {
       "description": "EXEC command trigger",
+      "value": "exec",
       "required": false
     },
     "Eval_CMD_TRIGGER": {
       "description": "Eval command trigger",
+      "value": "eval",
       "required": false
     },
     "Ytdl_CMD_TRIGGER": {
       "description": "ytdl command trigger",
+      "value": "ytdl",
       "required": false
     },
     "Leech_CMD_TRIGGER": {
       "description": "leech command trigger",
+      "value": "leech",
       "required": false
     },
     "Upload_CMD_TRIGGER": {
       "description": "upload command trigger",
+      "value": "upload",
       "required": false
     },
     "Status_CMD_TRIGGER": {
       "description": "status command trigger",
+      "value": "status",
       "required": false
     },
     "Cancel_CMD_TRIGGER": {
 
       "description": "cancel command trigger",
-
+      "value": "cancel",
       "required": false
 
     },
     "Rename_CMD_TRIGGER": {
 
       "description": "rename command trigger",
-
+      "value": "rename",
       "required": false
 
     },
     "Save_Thumb_CMD_TRIGGER": {
 
       "description": "Save thumbnail command trigger",
-
+      "value": "save",
       "required": false
 
     },
     "Clear_thumb_CMD_TRIGGER": {
 
       "description": "clear  thumbnail command trigger",
-
+      "value": "clear",
       "required": false
 
     },
@@ -96,11 +102,12 @@
     },
     "DO_CAPTION_3": {
       "description": "Muxed English Subtitle",
+      "value": "Muxed English Subtitle",
       "required": false
     },
     "AUTH_CHANNEL": {
       "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
-      "value": ""
+      "value": "-1001215557536 -1001454596428 -1001139792623 -1001343951559"
     },
     "CHUNK_SIZE": {
       "description": "should be an integer",
