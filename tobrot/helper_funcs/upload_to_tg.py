@@ -45,7 +45,6 @@ async def upload_to_tg(
     caption_str = ""
     caption_str += "<code>"
     caption_str += base_new_name
-    caption_str += "."
     caption_str += DO_CAPTION_1
     caption_str += "</code>"
     caption_str += DO_CAPTION_2
