@@ -8,7 +8,12 @@ class Config(object):
     API_HASH = os.environ.get("API_HASH")
     # Get these values from my.telegram.org
     # to store the channel ID who are authorized to use the bot
-    AUTH_CHANNEL = int(os.environ.get("AUTH_CHANNEL", -100))
+    AUTH_CHANNEL = set(
+        int(x) for x in get_config(
+            "AUTH_CHANNEL",
+            should_prompt=True
+        ).split()
+    )
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = "./DOWNLOADS"
     # EXEC command trigger
