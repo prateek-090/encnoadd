@@ -41,6 +41,7 @@ async def upload_to_tg(
     LOGGER.info(local_file_name)
     base_file_name = os.path.basename(local_file_name)
     base_new_name = os.path.splitext(base_file_name)[0]
+    extension_new_name = os.path.splitext(base_file_name)[1]
     caption_str = ""
     caption_str += "<code>"
     caption_str += base_new_name
@@ -48,7 +49,7 @@ async def upload_to_tg(
     caption_str += "</code>"
     caption_str += DO_CAPTION_2
     caption_str += "<code>"
-    caption_str += ".mkv"
+    caption_str += extension_new_name
     caption_str += "</code>"
     caption_str += "\n\n"
     # caption_str += "<a href='tg://user?id="
