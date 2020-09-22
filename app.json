@@ -14,9 +14,9 @@
     "youtube-dl",
     "leecher"
   ],
-  "repository": "",
-  "success_url": "",
-  "website": "",
+  "repository": "https://github.com/Team-DnO",
+  "success_url": "https://github.com/Team-DnO",
+  "website": "https://github.com/Team-DnO",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
@@ -132,17 +132,17 @@
   "addons": [
   ],
   "buildpacks": [{
-    "url": "https://github.com/Anonymous5945/heroku-buildpack-ffmpeg-latest"
+    "url": "https://github.com/Team-DnO/heroku-buildpack-ffmpeg-latest"
   }, {
-    "url": "https://github.com/Anonymous5945/heroku-buildpack-rarlab"
+    "url": "https://github.com/Team-DnO/heroku-buildpack-rarlab"
   }, {
-    "url": "https://github.com/Anonymous5945/heroku-buildpack-plowshare"
+    "url": "https://github.com/Team-DnO/heroku-buildpack-plowshare"
   }, {
-    "url": "https://github.com/Anonymous5945/heroku-buildpack-p7zip"
+    "url": "https://github.com/Team-DnO/heroku-buildpack-p7zip"
   }, {
-    "url": "https://github.com/Anonymous5945/aria2-heroku"
+    "url": "https://github.com/Team-DnO/aria2-heroku"
   }, {
-    "url": "https://github.com/Anonymous5945/rclone-heroku"
+    "url": "https://github.com/Team-DnO/rclone-heroku"
   }, {
     "url": "heroku/python"
   }],
