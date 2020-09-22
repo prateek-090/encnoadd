@@ -14,9 +14,9 @@
     "youtube-dl",
     "leecher"
   ],
-  "repository": "https://github.com/Anonymous5945/test-3",
-  "success_url": "https://github.com/Anonymous5945/test-3",
-  "website": "https://github.com/Anonymous5945/test-3",
+  "repository": "",
+  "success_url": "",
+  "website": "",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
