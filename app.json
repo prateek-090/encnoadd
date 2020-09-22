@@ -14,9 +14,9 @@
     "youtube-dl",
     "leecher"
   ],
-  "repository": "https://github.com/Anonymous5945/enc",
-  "success_url": "https://github.com/Anonymous5945/enc",
-  "website": "https://github.com/Anonymous5945/enc",
+  "repository": "https://github.com/Team-DnO/",
+  "success_url": "https://github.com/Team-DnO/",
+  "website": "https://github.com/Team-DnO/",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
