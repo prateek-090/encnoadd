@@ -42,4 +42,3 @@ class Config(object):
     DO_CAPTION_2 = os.environ.get("DO_CAPTION_2", "")
     DO_CAPTION_3 = os.environ.get("DO_CAPTION_3", "")
     TELEGRAM_CMD_TRIGGER = os.environ.get("TELEGRAM_CMD_TRIGGER", "down")
-    LOG_CMD_TRIGGER = os.environ.get("LOG_CMD_TRIGGER", "log")
