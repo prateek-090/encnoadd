@@ -42,18 +42,3 @@ async def help_message_f(client, message):
         quote=True
     )
 
-
-async def rename_message_f(client, message):
-    inline_keyboard = []
-    inline_keyboard.append([
-        pyrogram.InlineKeyboardButton(
-            text="read this?",
-            url="https://t.me/c/1333270743/69"
-        )
-    ])
-    reply_markup = pyrogram.InlineKeyboardMarkup(inline_keyboard)
-    await message.reply_text(
-        "please use @sluploadbot",
-        quote=True,
-        reply_markup=reply_markup
-    )
