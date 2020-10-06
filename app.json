@@ -10,8 +10,7 @@
     "plugin",
     "modular",
     "productivity",
-    "youtube-dl",
-    "leecher"
+    "youtube-dl"
   ],
   "repository": "https://github.com/Team-DnO/",
   "success_url": "https://github.com/Team-DnO/",
