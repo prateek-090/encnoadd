@@ -19,6 +19,8 @@ import time
 import sys
 import traceback
 
+from datetime import datetime
+
 from tobrot import (
     MAX_MESSAGE_LENGTH
 )
