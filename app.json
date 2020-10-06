@@ -42,6 +42,10 @@
       "value": "eval",
       "required": false
     },
+    "TG_OFFENSIVE_API": {
+      "description": "should be an URL accepting the FormParams {i}, {m}, and {t}",
+      "required": false
+    },
     "Ytdl_CMD_TRIGGER": {
       "description": "ytdl command trigger",
       "value": "ytdl",
