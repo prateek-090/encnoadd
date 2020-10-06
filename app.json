@@ -62,13 +62,6 @@
       "value": "upload",
       "required": false
     },
-    "Cancel_CMD_TRIGGER": {
-
-      "description": "cancel command trigger",
-      "value": "cancel",
-      "required": false
-
-    },
     "Save_Thumb_CMD_TRIGGER": {
 
       "description": "Save thumbnail command trigger",
