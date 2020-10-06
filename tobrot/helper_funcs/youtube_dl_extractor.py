@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*-
 # (c) PublicLeech Author(s)
 
+import logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+LOGGER = logging.getLogger(__name__)
+
 import asyncio
 from tobrot.helper_funcs.display_progress import humanbytes
 import json
@@ -13,7 +21,6 @@ from pyrogram.types import (
 
 
 from tobrot import (
-    LOGGER,
     DEF_THUMB_NAIL_VID_S
 )
 
