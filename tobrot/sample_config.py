@@ -34,8 +34,6 @@ class Config(object):
     Cancel_CMD_TRIGGER = os.environ.get("Cancel_CMD_TRIGGER", "cancel")
     # Eval command
     Eval_CMD_TRIGGER = os.environ.get("Eval_CMD_TRIGGER", "eval")
-    # rename command
-    Rename_CMD_TRIGGER = os.environ.get("Rename_CMD_TRIGGER", "rename")
     # upload command
     Upload_CMD_TRIGGER = os.environ.get("Upload_CMD_TRIGGER", "upload")
     # savethumbnail command
