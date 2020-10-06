@@ -49,19 +49,9 @@
       "value": "ytdl",
       "required": false
     },
-    "Leech_CMD_TRIGGER": {
-      "description": "leech command trigger",
-      "value": "leech",
-      "required": false
-    },
     "Upload_CMD_TRIGGER": {
       "description": "upload command trigger",
       "value": "upload",
-      "required": false
-    },
-    "Status_CMD_TRIGGER": {
-      "description": "status command trigger",
-      "value": "status",
       "required": false
     },
     "Cancel_CMD_TRIGGER": {
@@ -114,18 +104,9 @@
       "value": "128",
       "required": false
     },
-    "ARIA_TWO_STARTED_PORT": {
-      "description": "should be an integer. The port on which aria2c daemon must start, and keep listening.",
-      "value": "6800",
-      "required": false
-    },
     "EDIT_SLEEP_TIME_OUT": {
       "description": "should be an integer. Number of seconds to wait before editing a message.",
       "value": "1",
-      "required": false
-    },
-    "MAX_TIME_TO_WAIT_FOR_TORRENTS_TO_START": {
-      "description": "should be an integer. Number of seconds to wait before cancelling a torrent.",
       "required": false
     }
   },
