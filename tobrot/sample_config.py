@@ -37,10 +37,11 @@ class Config(object):
     # upload command
     Upload_CMD_TRIGGER = os.environ.get("Upload_CMD_TRIGGER", "upload")
     # savethumbnail command
-    Save_Thumb_CMD_TRIGGER = os.environ.get("Save_Thumb_CMD_TRIGGER", "savethumbnail")
+    Save_Thumb_CMD_TRIGGER = os.environ.get("Save_Thumb_CMD_TRIGGER", "save")
     # clear thumbnail command
-    Clear_thumb_CMD_TRIGGER = os.environ.get("Clear_thumb_CMD_TRIGGER", "clearthumbnail")
+    Clear_thumb_CMD_TRIGGER = os.environ.get("Clear_thumb_CMD_TRIGGER", "clear")
     DO_CAPTION_1 = os.environ.get("DO_CAPTION_1", "")
     DO_CAPTION_2 = os.environ.get("DO_CAPTION_2", "")
     DO_CAPTION_3 = os.environ.get("DO_CAPTION_3", "")
-    
+    TELEGRAM_CMD_TRIGGER = os.environ.get("TELEGRAM_CMD_TRIGGER", "down")
+    LOG_CMD_TRIGGER = os.environ.get("LOG_CMD_TRIGGER", "log")
