@@ -33,7 +33,6 @@ PROCESS_RUNNING = "processing ..."
 Ytdl_CMD_TRIGGER = Config.Ytdl_CMD_TRIGGER
 Cancel_CMD_TRIGGER = Config.Cancel_CMD_TRIGGER
 Eval_CMD_TRIGGER = Config.Eval_CMD_TRIGGER
-Rename_CMD_TRIGGER = Config.Rename_CMD_TRIGGER
 Upload_CMD_TRIGGER = Config.Upload_CMD_TRIGGER
 Save_Thumb_CMD_TRIGGER = Config.Save_Thumb_CMD_TRIGGER
 Clear_thumb_CMD_TRIGGER =Config.Clear_thumb_CMD_TRIGGER
