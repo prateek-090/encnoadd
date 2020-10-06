@@ -59,13 +59,6 @@
       "required": false
 
     },
-    "Rename_CMD_TRIGGER": {
-
-      "description": "rename command trigger",
-      "value": "rename",
-      "required": false
-
-    },
     "Save_Thumb_CMD_TRIGGER": {
 
       "description": "Save thumbnail command trigger",
