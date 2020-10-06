@@ -71,13 +71,13 @@ if __name__ == "__main__" :
     #
     upload_log_handler = MessageHandler(
         upload_log_file,
-        filters=filters.command([f"{LOG_CMD_TRIGGER}"]) & filters.chat(chats=AUTH_CHANNEL)
+        filters=filters.command([LOG_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(upload_log_handler)
     #
     incoming_telegram_download_handler = MessageHandler(
         down_load_media_f,
-        filters=filters.command([f"{TELEGRAM_CMD_TRIGGER}"]) & filters.chat(chats=AUTH_CHANNEL)
+        filters=filters.command([TELEGRAM_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_telegram_download_handler)
     #
