@@ -17,7 +17,15 @@ import time
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from PIL import Image
-from tobrot.helper_funcs.display_progress import progress_for_pyrogram, humanbytes
+from pyrogram.types import (
+    InputMediaDocument,
+    InputMediaVideo,
+    InputMediaAudio
+)
+from tobrot.helper_funcs.display_progress import (
+    progress_for_pyrogram,
+    humanbytes
+)
 from tobrot.helper_funcs.help_Nekmo_ffmpeg import take_screen_shot
 from tobrot.helper_funcs.split_large_files import split_large_files
 from tobrot.helper_funcs.copy_similar_file import copy_file
@@ -36,7 +44,9 @@ async def upload_to_tg(
     message,
     local_file_name,
     from_user,
-    dict_contatining_uploaded_files
+    dict_contatining_uploaded_files,
+    edit_media=False,
+    custom_caption=None
 ):
     LOGGER.info(local_file_name)
     base_file_name = os.path.basename(local_file_name)
@@ -62,18 +72,22 @@ async def upload_to_tg(
         directory_contents.sort()
         # number_of_files = len(directory_contents)
         LOGGER.info(directory_contents)
-        new_m_esg = await message.reply_text(
-            "Found {} files".format(len(directory_contents)),
-            quote=True
-            # reply_to_message_id=message.message_id
-        )
+        new_m_esg = message
+        if not message.photo:
+            new_m_esg = await message.reply_text(
+                "Found {} files".format(len(directory_contents)),
+                quote=True
+                # reply_to_message_id=message.message_id
+            )
         for single_file in directory_contents:
             # recursion: will this FAIL somewhere?
             await upload_to_tg(
                 new_m_esg,
                 os.path.join(local_file_name, single_file),
                 from_user,
-                dict_contatining_uploaded_files
+                dict_contatining_uploaded_files,
+                edit_media,
+                caption_str
             )
     else:
         if os.path.getsize(local_file_name) > TG_MAX_FILE_SIZE:
@@ -108,14 +122,16 @@ async def upload_to_tg(
                 message,
                 local_file_name,
                 caption_str,
-                from_user
+                from_user,
+                edit_media
             )
             if sent_message is not None:
                 dict_contatining_uploaded_files[os.path.basename(local_file_name)] = sent_message.message_id
+    # await message.delete()
     return dict_contatining_uploaded_files
 
 
-async def upload_single_file(message, local_file_name, caption_str, from_user):
+async def upload_single_file(message, local_file_name, caption_str, from_user, edit_media):
     await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
     sent_message = None
     start_time = time.time()
@@ -128,10 +144,12 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
     LOGGER.info(thumbnail_location)
     #
     try:
-        message_for_progress_display = await message.reply_text(
-            "starting upload of {}".format(os.path.basename(local_file_name))
-        )
-        if local_file_name.upper().endswith(( "MP4", "WEBM")):
+        message_for_progress_display = message
+        if not edit_media:
+            message_for_progress_display = await message.reply_text(
+                "starting upload of {}".format(os.path.basename(local_file_name))
+            )
+        if local_file_name.upper().endswith(("MKV", "MP4", "WEBM")):
             metadata = extractMetadata(createParser(local_file_name))
             duration = 0
             if metadata.has("duration"):
@@ -174,25 +192,40 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
             if thumb_image_path is not None and os.path.isfile(thumb_image_path):
                 thumb = thumb_image_path
             # send video
-            sent_message = await message.reply_video(
-                video=local_file_name,
-                # quote=True,
-                caption=caption_str,
-                parse_mode="html",
-                duration=duration,
-                width=width,
-                height=height,
-                thumb=thumb,
-                supports_streaming=True,
-                disable_notification=True,
-                # reply_to_message_id=message.reply_to_message.message_id,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    "trying to upload",
-                    message_for_progress_display,
-                    start_time
+            if edit_media and message.photo:
+                sent_message = await message.edit_media(
+                    media=InputMediaVideo(
+                        media=local_file_name,
+                        thumb=thumb,
+                        caption=caption_str,
+                        parse_mode="html",
+                        width=width,
+                        height=height,
+                        duration=duration,
+                        supports_streaming=True
+                    )
+                    # quote=True,
                 )
-            )
+            else:
+                sent_message = await message.reply_video(
+                    video=local_file_name,
+                    # quote=True,
+                    caption=caption_str,
+                    parse_mode="html",
+                    duration=duration,
+                    width=width,
+                    height=height,
+                    thumb=thumb,
+                    supports_streaming=True,
+                    disable_notification=True,
+                    # reply_to_message_id=message.reply_to_message.message_id,
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        "trying to upload",
+                        message_for_progress_display,
+                        start_time
+                    )
+                )
             if thumb is not None:
                 os.remove(thumb)
         elif local_file_name.upper().endswith(("MP3", "M4A", "M4B", "FLAC", "WAV")):
@@ -216,24 +249,38 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
             if thumb_image_path is not None and os.path.isfile(thumb_image_path):
                 thumb = thumb_image_path
             # send audio
-            sent_message = await message.reply_audio(
-                audio=local_file_name,
-                # quote=True,
-                caption=caption_str,
-                parse_mode="html",
-                duration=duration,
-                performer=artist,
-                title=title,
-                thumb=thumb,
-                disable_notification=True,
-                # reply_to_message_id=message.reply_to_message.message_id,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    "trying to upload",
-                    message_for_progress_display,
-                    start_time
+            if edit_media and message.photo:
+                sent_message = await message.edit_media(
+                    media=InputMediaAudio(
+                        media=local_file_name,
+                        thumb=thumb,
+                        caption=caption_str,
+                        parse_mode="html",
+                        duration=duration,
+                        performer=artist,
+                        title=title
+                    )
+                    # quote=True,
                 )
-            )
+            else:
+                sent_message = await message.reply_audio(
+                    audio=local_file_name,
+                    # quote=True,
+                    caption=caption_str,
+                    parse_mode="html",
+                    duration=duration,
+                    performer=artist,
+                    title=title,
+                    thumb=thumb,
+                    disable_notification=True,
+                    # reply_to_message_id=message.reply_to_message.message_id,
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        "trying to upload",
+                        message_for_progress_display,
+                        start_time
+                    )
+                )
             if thumb is not None:
                 os.remove(thumb)
         else:
@@ -250,26 +297,38 @@ async def upload_single_file(message, local_file_name, caption_str, from_user):
                 thumb = thumb_image_path
             #
             # send document
-            sent_message = await message.reply_document(
-                document=local_file_name,
-                # quote=True,
-                thumb=thumb,
-                caption=caption_str,
-                parse_mode="html",
-                disable_notification=True,
-                # reply_to_message_id=message.reply_to_message.message_id,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    "trying to upload",
-                    message_for_progress_display,
-                    start_time
+            if edit_media and message.photo:
+                sent_message = await message.edit_media(
+                    media=InputMediaDocument(
+                        media=local_file_name,
+                        thumb=thumb,
+                        caption=caption_str,
+                        parse_mode="html"
+                    )
+                    # quote=True,
                 )
-            )
+            else:
+                sent_message = await message.reply_document(
+                    document=local_file_name,
+                    # quote=True,
+                    thumb=thumb,
+                    caption=caption_str,
+                    parse_mode="html",
+                    disable_notification=True,
+                    # reply_to_message_id=message.reply_to_message.message_id,
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        "trying to upload",
+                        message_for_progress_display,
+                        start_time
+                    )
+                )
             if thumb is not None:
                 os.remove(thumb)
     except Exception as e:
         await message_for_progress_display.edit_text("**FAILED**\n" + str(e))
     else:
-        await message_for_progress_display.delete()
+        if message.message_id != message_for_progress_display.message_id:
+            await message_for_progress_display.delete()
     os.remove(local_file_name)
     return sent_message
