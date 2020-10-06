@@ -1,6 +1,6 @@
 {
-  "name": "Telegram Torrent Leecher",
-  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram.",
+  "name": "Telegram bot",
+  "description": "A Telegram app (and youtube-dl) based on Pyrogram.",
   "keywords": [
     "telegram",
     "best",
