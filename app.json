@@ -52,11 +52,6 @@
       "value": "down",
       "required": false
     },
-    "LOG_CMD_TRIGGER": {
-      "description": "Log command trigger",
-      "value": "log",
-      "required": false
-    },
     "Upload_CMD_TRIGGER": {
       "description": "upload command trigger",
       "value": "upload",
