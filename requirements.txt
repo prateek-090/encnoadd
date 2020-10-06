@@ -1,7 +1,8 @@
 aiohttp
 hachoir
 Pillow
-https://github.com/Team-DnO/pyrogram/archive/asyncio-dev.zip
+# https://github.com/Team-DnO/pyrogram/archive/asyncio-dev.zip
+pyrogram
 requests
 tgcrypto
 asyncio
