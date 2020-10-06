@@ -30,8 +30,6 @@ class Config(object):
     MAX_TG_SPLIT_FILE_SIZE = int(os.environ.get("MAX_TG_SPLIT_FILE_SIZE", 1072864000))
     # ytdl command
     Ytdl_CMD_TRIGGER = os.environ.get("Ytdl_CMD_TRIGGER", "ytdl")
-    # cancel command
-    Cancel_CMD_TRIGGER = os.environ.get("Cancel_CMD_TRIGGER", "cancel")
     # Eval command
     Eval_CMD_TRIGGER = os.environ.get("Eval_CMD_TRIGGER", "eval")
     # upload command
