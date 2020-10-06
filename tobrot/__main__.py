@@ -21,12 +21,9 @@ from tobrot import (
     API_HASH,
     AUTH_CHANNEL,
     EXEC_CMD_TRIGGER,
-    Leech_CMD_TRIGGER,
     Ytdl_CMD_TRIGGER,
-    Status_CMD_TRIGGER,
     Cancel_CMD_TRIGGER,
     Eval_CMD_TRIGGER,
-    Rename_CMD_TRIGGER,
     Upload_CMD_TRIGGER,
     Save_Thumb_CMD_TRIGGER,
     Clear_thumb_CMD_TRIGGER
@@ -34,10 +31,9 @@ from tobrot import (
 
 from pyrogram import Client, Filters, MessageHandler, CallbackQueryHandler
 
-from tobrot.plugins.new_join_fn import new_join_f, help_message_f, rename_message_f
-from tobrot.plugins.incoming_message_fn import incoming_message_f, incoming_youtube_dl_f
+from tobrot.plugins.new_join_fn import new_join_f, help_message_f
+from tobrot.plugins.incoming_message_fn import incoming_youtube_dl_f
 from tobrot.plugins.status_message_fn import (
-    status_message_f,
     cancel_message_f,
     exec_message_f,
     eval_message_f,
@@ -63,23 +59,11 @@ if __name__ == "__main__" :
         workers=343
     )
     #
-    incoming_message_handler = MessageHandler(
-        incoming_message_f,
-        filters=Filters.command([Leech_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
-    )
-    app.add_handler(incoming_message_handler)
-    #
     incoming_youtube_dl_handler = MessageHandler(
         incoming_youtube_dl_f,
         filters=Filters.command([Ytdl_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_youtube_dl_handler)
-    #
-    status_message_handler = MessageHandler(
-        status_message_f,
-        filters=Filters.command([Status_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
-    )
-    app.add_handler(status_message_handler)
     #
     cancel_message_handler = MessageHandler(
         cancel_message_f,
@@ -99,12 +83,6 @@ if __name__ == "__main__" :
     )
     app.add_handler(eval_message_handler)
     #
-    rename_message_handler = MessageHandler(
-        rename_message_f,
-        filters=Filters.command([Rename_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
-    )
-    app.add_handler(rename_message_handler)
-    #
     upload_document_handler = MessageHandler(
         upload_document_f,
         filters=Filters.command([Upload_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
@@ -122,12 +100,6 @@ if __name__ == "__main__" :
         filters=~Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(new_join_handler)
-    #
-    group_new_join_handler = MessageHandler(
-        help_message_f,
-        filters=Filters.chat(chats=AUTH_CHANNEL) & Filters.new_chat_members
-    )
-    app.add_handler(group_new_join_handler)
     #
     call_back_button_handler = CallbackQueryHandler(
         button
