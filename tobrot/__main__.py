@@ -26,7 +26,6 @@ from tobrot import (
     Upload_CMD_TRIGGER,
     Save_Thumb_CMD_TRIGGER,
     Clear_thumb_CMD_TRIGGER,
-    LOG_CMD_TRIGGER,
     TELEGRAM_CMD_TRIGGER
 )
 
@@ -37,8 +36,7 @@ from tobrot.plugins.incoming_message_fn import incoming_youtube_dl_f
 from tobrot.plugins.status_message_fn import (
     exec_message_f,
     eval_message_f,
-    upload_document_f,
-    upload_log_file
+    upload_document_f
 )
 from tobrot.plugins.call_back_button_handler import button
 from tobrot.plugins.custom_thumbnail import (
@@ -66,12 +64,6 @@ if __name__ == "__main__" :
         filters=Filters.command([Ytdl_CMD_TRIGGER]) & Filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_youtube_dl_handler)
-    #
-    upload_log_handler = MessageHandler(
-        upload_log_file,
-        filters=filters.command([LOG_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
-    )
-    app.add_handler(upload_log_handler)
     #
     incoming_telegram_download_handler = MessageHandler(
         down_load_media_f,
