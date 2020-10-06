@@ -20,8 +20,7 @@ from datetime import datetime
 
 from tobrot import (
     DOWNLOAD_LOCATION,
-    AUTH_CHANNEL,
-    SHOULD_USE_BUTTONS
+    AUTH_CHANNEL
 )
 from tobrot.helper_funcs.upload_to_tg import upload_to_tg
 
