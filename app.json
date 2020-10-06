@@ -140,8 +140,6 @@
   }, {
     "url": "https://github.com/Team-DnO/heroku-buildpack-p7zip"
   }, {
-    "url": "https://github.com/Team-DnO/aria2-heroku"
-  }, {
     "url": "https://github.com/Team-DnO/rclone-heroku"
   }, {
     "url": "heroku/python"
