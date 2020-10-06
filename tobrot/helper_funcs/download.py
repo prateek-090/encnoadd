@@ -20,9 +20,11 @@ import sys
 import traceback
 
 from datetime import datetime
+from pyrogram import Client, filters
 
 from tobrot import (
-    MAX_MESSAGE_LENGTH
+    MAX_MESSAGE_LENGTH,
+    DOWNLOAD_LOCATION
 )
 
 from tobrot.helper_funcs.display_progress import progress_for_pyrogram
