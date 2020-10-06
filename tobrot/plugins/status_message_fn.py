@@ -146,8 +146,3 @@ async def upload_document_f(client, message):
             )
             LOGGER.info(recvd_response)
     await imsegd.delete()
-
-async def upload_log_file(client, message):
-    await message.reply_document(
-        "enc-do.txt"
-    )
