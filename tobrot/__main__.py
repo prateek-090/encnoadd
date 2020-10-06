@@ -26,7 +26,9 @@ from tobrot import (
     Eval_CMD_TRIGGER,
     Upload_CMD_TRIGGER,
     Save_Thumb_CMD_TRIGGER,
-    Clear_thumb_CMD_TRIGGER
+    Clear_thumb_CMD_TRIGGER,
+    LOG_CMD_TRIGGER,
+    TELEGRAM_CMD_TRIGGER
 )
 
 from pyrogram import Client, Filters, MessageHandler, CallbackQueryHandler
@@ -46,6 +48,7 @@ from tobrot.plugins.custom_thumbnail import (
     clear_thumb_nail
 )
 
+from tobrot.helper_funcs.download import down_load_media_f
 
 if __name__ == "__main__" :
     # create download directory, if not exist
@@ -68,9 +71,15 @@ if __name__ == "__main__" :
     #
     upload_log_handler = MessageHandler(
         upload_log_file,
-        filters=filters.command([f"{LOG_COMMAND}"]) & filters.chat(chats=AUTH_CHANNEL)
+        filters=filters.command([f"{LOG_CMD_TRIGGER}"]) & filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(upload_log_handler)
+    #
+    incoming_telegram_download_handler = MessageHandler(
+        down_load_media_f,
+        filters=filters.command([f"{TELEGRAM_CMD_TRIGGER}"]) & filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_telegram_download_handler)
     #
     cancel_message_handler = MessageHandler(
         cancel_message_f,
