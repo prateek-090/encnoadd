@@ -47,6 +47,16 @@
       "value": "ytdl",
       "required": false
     },
+    "TELEGRAM_CMD_TRIGGER": {
+      "description": "Telegram command trigger",
+      "value": "down",
+      "required": false
+    },
+    "LOG_CMD_TRIGGER": {
+      "description": "Log command trigger",
+      "value": "log",
+      "required": false
+    },
     "Upload_CMD_TRIGGER": {
       "description": "upload command trigger",
       "value": "upload",
@@ -107,8 +117,6 @@
     "url": "https://github.com/Team-DnO/heroku-buildpack-ffmpeg-latest"
   }, {
     "url": "https://github.com/Team-DnO/heroku-buildpack-rarlab"
-  }, {
-    "url": "https://github.com/Team-DnO/heroku-buildpack-plowshare"
   }, {
     "url": "https://github.com/Team-DnO/heroku-buildpack-p7zip"
   }, {
