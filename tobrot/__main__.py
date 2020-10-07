@@ -53,7 +53,7 @@ from tobrot.plugins.custom_thumbnail import (
     clear_thumb_nail
 )
 
-from tobrot.helper_funcs.download import down_load_media_f, Scrap_media_f
+from tobrot.helper_funcs.download import down_load_media_f, Scrap_media_f , Scrap_seg_media_f
 
 if __name__ == "__main__" :
     # create download directory, if not exist
