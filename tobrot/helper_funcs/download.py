@@ -58,3 +58,33 @@ async def down_load_media_f(client, message):
     else:
         #await asyncio.sleep(4)
         await mess_age.edit_text("Reply to a Telegram Media, to save to the server.")
+
+
+async def Scrap_media_f(client, message):
+    
+    http = urllib3.PoolManager()
+
+    url = message.reply_to_message
+    response = http.request('GET', url)
+    soup = BeautifulSoup(response.data, "html.parser")
+    links = soup.find_all('a')
+
+    for tag in links:
+        link = tag.get('href',None)
+        if link and "ddrive" in link:
+            print(link)
+
+async def Scrap_seg_media_f(client, message):
+    
+    http = urllib3.PoolManager()
+
+    url = message.reply_to_message
+    response = http.request('GET', url)
+    soup = BeautifulSoup(response.data, "html.parser")
+    links = soup.find_all('a')
+
+    for tag in links:
+        link = tag.get('href',None)
+        tght = tag.text.strip()
+        if link and "ddrive" in link:
+           await message.reply_text(f"<a href='{link}'>{tght}</a>")
