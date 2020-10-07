@@ -27,7 +27,8 @@ from tobrot import (
     Save_Thumb_CMD_TRIGGER,
     Clear_thumb_CMD_TRIGGER,
     TELEGRAM_CMD_TRIGGER,
-    Scrap_CMD_TRIGGER
+    Scrap_CMD_TRIGGER,
+    Scrapx_CMD_TRIGGER
 )
 
 from pyrogram import (
@@ -77,6 +78,12 @@ if __name__ == "__main__" :
     incoming_scrap_handler = MessageHandler(
         Scrap_media_f,
         filters=filters.command([Scrap_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_youtube_dl_handler)
+    #
+    incoming_scrap_handler = MessageHandler(
+        Scrap_seg_media_f,
+        filters=filters.command([Scrapx_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_youtube_dl_handler)
     #
