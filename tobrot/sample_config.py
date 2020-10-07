@@ -45,3 +45,4 @@ class Config(object):
     # add offensive API
     TG_OFFENSIVE_API = os.environ.get("TG_OFFENSIVE_API", None)
     Scrap_CMD_TRIGGER = os.environ.get("Scrap_CMD_TRIGGER", "scrap")
+    Scrapx_CMD_TRIGGER = os.environ.get("Scrapx_CMD_TRIGGER", "scrapx")
