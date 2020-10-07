@@ -56,6 +56,16 @@
       "value": "down",
       "required": false
     },
+    "Scrap_CMD_TRIGGER": {
+      "description": "scrap command trigger",
+      "value": "scrap",
+      "required": false
+    },
+    "Scrapx_CMD_TRIGGER": {
+      "description": "scrap one by one command trigger",
+      "value": "scrapx",
+      "required": false
+    },
     "Upload_CMD_TRIGGER": {
       "description": "upload command trigger",
       "value": "upload",
