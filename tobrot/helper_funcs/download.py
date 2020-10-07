@@ -22,6 +22,9 @@ import traceback
 from datetime import datetime
 from pyrogram import Client, filters
 
+from bs4 import BeautifulSoup
+import urllib3
+
 from tobrot import (
     MAX_MESSAGE_LENGTH,
     DOWNLOAD_LOCATION
