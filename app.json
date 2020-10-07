@@ -56,9 +56,9 @@
       "value": "down",
       "required": false
     },
-    "Scrap_CMD_TRIGGER": {
-      "description": "scrap command trigger",
-      "value": "scrap",
+    "Mass_CMD_TRIGGER": {
+      "description": "Mass Download command trigger",
+      "value": "mass",
       "required": false
     },
     "Scrapx_CMD_TRIGGER": {
