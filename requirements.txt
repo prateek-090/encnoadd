@@ -6,5 +6,3 @@ requests
 tgcrypto
 beautifulsoup4
 youtube-dl
-git+https://github.com/Team-DnO/Subscene-Subtitle-Grabber
-git+https://github.com/Team-DnO/urlExpander
