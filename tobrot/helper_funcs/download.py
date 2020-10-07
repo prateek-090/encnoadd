@@ -63,19 +63,31 @@ async def down_load_media_f(client, message):
         await mess_age.edit_text("Reply to a Telegram Media, to save to the server.")
 
 
-async def scrap_media_f(client, message):
-    
-    http = urllib3.PoolManager()
+async def mass_down_load_media_f(client, message):
+    user_id = message.from_user.id
+    print(user_id)
+    mess_age = await message.reply_text("...", quote=True)
+    if not os.path.isdir(DOWNLOAD_LOCATION):
+        os.makedirs(DOWNLOAD_LOCATION)    
+    n=message.message_id
+    w=message.reply_to_message.message_id
+    tar_id = message.chat.id
+    start_t = datetime.now()
+    if message.reply_to_message is not None:
+      for i in range(w, n):
+          u_id = int(i)
+          m = await client.get_messages(tar_id, u_id)
+          if m.media:
+              f = await m.download("/app/")
+          LOGGER.info(f)
+          await asyncio.sleep(4)
+          await mess_age.edit_text(f"<b>OUTPUT:</b>\n\n <code>{f}</code> \n\n in <u>{ms}</u> seconds")
+          the_real_download_location_g = os.path.basename(f)
+          LOGGER.info(the_real_download_location_g)
+    else:
+        #await asyncio.sleep(4)
+        await mess_age.edit_text("Reply to a Telegram Media, to save to the server.")
 
-    url = message.reply_to_message.text
-    response = http.request('GET', url)
-    soup = BeautifulSoup(response.data, "html.parser")
-    links = soup.find_all('a')
-
-    for tag in links:
-        link = tag.get('href',None)
-        if link and "ddrive" in link:
-            print(link)
 
 async def scrap_seg_media_f(client, message):
     
