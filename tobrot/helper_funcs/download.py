@@ -67,7 +67,7 @@ async def Scrap_media_f(client, message):
     
     http = urllib3.PoolManager()
 
-    url = message.reply_to_message
+    url = message.reply_to_message.text
     response = http.request('GET', url)
     soup = BeautifulSoup(response.data, "html.parser")
     links = soup.find_all('a')
@@ -81,7 +81,7 @@ async def Scrap_seg_media_f(client, message):
     
     http = urllib3.PoolManager()
 
-    url = message.reply_to_message
+    url = message.reply_to_message.text
     response = http.request('GET', url)
     soup = BeautifulSoup(response.data, "html.parser")
     links = soup.find_all('a')
