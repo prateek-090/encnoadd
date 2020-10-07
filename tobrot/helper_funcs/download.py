@@ -54,7 +54,7 @@ async def down_load_media_f(client, message):
         ms = (end_t - start_t).seconds
         LOGGER.info(the_real_download_location)
         await asyncio.sleep(10)
-        await mess_age.edit_text(f"Downloaded to <code>{the_real_download_location}</code> \n\n in <u>{ms}</u> seconds")
+        await mess_age.edit_text(f"<b>OUTPUT:</b>\n\n <code>{the_real_download_location}</code> \n\n in <u>{ms}</u> seconds")
         the_real_download_location_g = os.path.basename(the_real_download_location)
         LOGGER.info(the_real_download_location_g)
 
