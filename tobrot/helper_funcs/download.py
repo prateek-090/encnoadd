@@ -63,7 +63,7 @@ async def down_load_media_f(client, message):
         await mess_age.edit_text("Reply to a Telegram Media, to save to the server.")
 
 
-async def Scrap_media_f(client, message):
+async def scrap_media_f(client, message):
     
     http = urllib3.PoolManager()
 
@@ -77,7 +77,7 @@ async def Scrap_media_f(client, message):
         if link and "ddrive" in link:
             print(link)
 
-async def Scrap_seg_media_f(client, message):
+async def scrap_seg_media_f(client, message):
     
     http = urllib3.PoolManager()
 
