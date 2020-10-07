@@ -79,6 +79,8 @@ async def mass_down_load_media_f(client, message):
           m = await client.get_messages(tar_id, u_id)
           if m.media:
               f = await m.download("/app/")
+          end_t = datetime.now()
+          ms = (end_t - start_t).seconds
           LOGGER.info(f)
           await asyncio.sleep(4)
           await mess_age.edit_text(f"<b>OUTPUT:</b>\n\n <code>{f}</code> \n\n in <u>{ms}</u> seconds")
