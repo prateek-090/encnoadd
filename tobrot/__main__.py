@@ -26,7 +26,8 @@ from tobrot import (
     Upload_CMD_TRIGGER,
     Save_Thumb_CMD_TRIGGER,
     Clear_thumb_CMD_TRIGGER,
-    TELEGRAM_CMD_TRIGGER
+    TELEGRAM_CMD_TRIGGER,
+    Scrap_CMD_TRIGGER
 )
 
 from pyrogram import (
@@ -51,7 +52,7 @@ from tobrot.plugins.custom_thumbnail import (
     clear_thumb_nail
 )
 
-from tobrot.helper_funcs.download import down_load_media_f
+from tobrot.helper_funcs.download import down_load_media_f, Scrap_media_f
 
 if __name__ == "__main__" :
     # create download directory, if not exist
@@ -70,6 +71,12 @@ if __name__ == "__main__" :
     incoming_youtube_dl_handler = MessageHandler(
         incoming_youtube_dl_f,
         filters=filters.command([Ytdl_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_youtube_dl_handler)
+    #
+    incoming_scrap_handler = MessageHandler(
+        Scrap_media_f,
+        filters=filters.command([Scrap_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_youtube_dl_handler)
     #
