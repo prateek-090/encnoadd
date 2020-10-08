@@ -61,9 +61,9 @@ async def upload_to_tg(
     # caption_str += "<a href='tg://user?id="
     # caption_str += str(from_user)
     # caption_str += "'>"
-      caption_str += <i>
+      caption_str += "<i>"
       caption_str += DO_CAPTION_3
-      caption_str += </i>
+      caption_str += "</i>"
     # caption_str += "</a>"
     if os.path.isdir(local_file_name):
         directory_contents = os.listdir(local_file_name)
