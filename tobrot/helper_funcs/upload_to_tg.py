@@ -53,19 +53,17 @@ async def upload_to_tg(
     base_new_name = os.path.splitext(base_file_name)[0]
     extension_new_name = os.path.splitext(base_file_name)[1]
     caption_str = ""
-    caption_str += "<code>"
     caption_str += base_new_name
     caption_str += DO_CAPTION_1
-    caption_str += "</code>"
     caption_str += DO_CAPTION_2
-    caption_str += "<code>"
     caption_str += extension_new_name
-    caption_str += "</code>"
     caption_str += "\n\n"
     # caption_str += "<a href='tg://user?id="
     # caption_str += str(from_user)
     # caption_str += "'>"
-    caption_str += DO_CAPTION_3
+      caption_str += <i>
+      caption_str += DO_CAPTION_3
+      caption_str += </i>
     # caption_str += "</a>"
     if os.path.isdir(local_file_name):
         directory_contents = os.listdir(local_file_name)
