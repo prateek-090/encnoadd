@@ -6,4 +6,3 @@ requests
 tgcrypto
 beautifulsoup4
 youtube-dl
-git+https://github.com/Anonymous5945/Subscene-Subtitle-Grabber
