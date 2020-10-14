@@ -40,6 +40,7 @@ from pyrogram.handlers import (
     CallbackQueryHandler
 )
 
+from tobrot.plugins.myown import mux_f, mux_do_f
 from tobrot.plugins.new_join_fn import new_join_f, help_message_f
 from tobrot.plugins.incoming_message_fn import incoming_youtube_dl_f
 from tobrot.plugins.status_message_fn import (
@@ -75,23 +76,35 @@ if __name__ == "__main__" :
     )
     app.add_handler(incoming_youtube_dl_handler)
     #
-    incoming_scrap_handler = MessageHandler(
+    incoming_mass_download_handler = MessageHandler(
         mass_down_load_media_f,
         filters=filters.command([Mass_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
-    app.add_handler(incoming_youtube_dl_handler)
+    app.add_handler(incoming_mass_download_handler)
     #
     incoming_scrap_handler = MessageHandler(
         scrap_seg_media_f,
         filters=filters.command([Scrapx_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
-    app.add_handler(incoming_youtube_dl_handler)
+    app.add_handler(incoming_scrap_handler)
     #
     incoming_telegram_download_handler = MessageHandler(
         down_load_media_f,
         filters=filters.command([TELEGRAM_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(incoming_telegram_download_handler)
+    #
+    incoming_mux_handler = MessageHandler(
+        mux_f,
+        filters=filters.command([Mux_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_mux_handler)
+    #
+    incoming_mux_do_handler = MessageHandler(
+        mux_do_f,
+        filters=filters.command([Muxdo_CMD_TRIGGER]) & filters.chat(chats=AUTH_CHANNEL)
+    )
+    app.add_handler(incoming_mux_do_handler)
     #
     exec_message_handler = MessageHandler(
         exec_message_f,
