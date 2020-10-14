@@ -53,7 +53,7 @@ async def down_load_media_f(client, message):
         end_t = datetime.now()
         ms = (end_t - start_t).seconds
         LOGGER.info(the_real_download_location)
-        await asyncio.sleep(10)
+        await asyncio.sleep(6)
         await mess_age.edit_text(f"<b>OUTPUT:</b>\n\n <code>{the_real_download_location}</code> \n\n in <u>{ms}</u> seconds")
         the_real_download_location_g = os.path.basename(the_real_download_location)
         LOGGER.info(the_real_download_location_g)
@@ -82,6 +82,7 @@ async def mass_down_load_media_f(client, message):
           end_t = datetime.now()
           ms = (end_t - start_t).seconds
           LOGGER.info(f)
+          await asyncio.sleep(6)
           await mess_age.edit_text(f"<b>OUTPUT:</b>\n\n <code>{f}</code> \n\n in <u>{ms}</u> seconds")
           the_real_download_location_g = os.path.basename(f)
           LOGGER.info(the_real_download_location_g)
