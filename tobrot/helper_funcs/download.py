@@ -105,7 +105,7 @@ async def scrap_seg_media_f(client, message):
         link = tag.get('href',None)
         tght = tag.text.strip()
         if link and "ddrive" in link:
-        if i < n:
-            i = i+1
-        else:
-            await message.reply_text(f"<a href='{link}'>{tght}</a>")
+           if i < n:
+              i = i+1
+           else:
+              await message.reply_text(f"<a href='{link}'>{tght}</a>")
