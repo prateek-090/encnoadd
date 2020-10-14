@@ -58,6 +58,7 @@ async def mux_video(video_file, sub_file, output_name):
     new_name = os.path.basename(output_name)
     output_directory = os.path.dirname(os.path.abspath(output_name))
     out_put_file_name = os.path.join(output_directory, new_name)
+    domet="Upl'd By Team-D&O @dramaost TG Group"
     if video_file.upper().endswith(("MKV", "MP4", "WEBM")):
         file_genertor_command = [
             "ffmpeg",
@@ -69,7 +70,8 @@ async def mux_video(video_file, sub_file, output_name):
             "-attach",
             "cover.jpg",
             "-metadata:s:t mimetype=image/jpeg -metadata:s:t filename=cover.jpg",
-            "-metadata title="Upl'd By Team-D&O @dramaost TG Group"",
+            "-metadata title=",
+            domet,
             out_put_file_name
         ]
         # width = "90"
@@ -95,6 +97,7 @@ async def mux_do_video(video_file, sub_file, output_name):
     new_name = os.path.basename(output_name)
     output_directory = os.path.dirname(os.path.abspath(output_name))
     out_put_file_name = os.path.join(output_directory, new_name)
+    domet="Upl'd & Enc'd By Team-D&O @dramaost TG Group"
     if video_file.upper().endswith(("MKV", "MP4", "WEBM")):
         file_genertor_command = [
             "ffmpeg",
@@ -106,7 +109,8 @@ async def mux_do_video(video_file, sub_file, output_name):
             "-attach",
             "Docover.jpg",
             "-metadata:s:t mimetype=image/jpeg -metadata:s:t filename=cover.jpg",
-            "-metadata title="Upl'd By Team-D&O @dramaost TG Group"",
+            "-metadata title=",
+            domet,
             out_put_file_name
         ]
         # width = "90"
