@@ -96,6 +96,7 @@ async def scrap_seg_media_f(client, message):
     http = urllib3.PoolManager()
 
     url = message.reply_to_message.text
+    n = message.text.split()
     response = http.request('GET', url)
     soup = BeautifulSoup(response.data, "html.parser")
     links = soup.find_all('a')
@@ -104,4 +105,7 @@ async def scrap_seg_media_f(client, message):
         link = tag.get('href',None)
         tght = tag.text.strip()
         if link and "ddrive" in link:
-           await message.reply_text(f"<a href='{link}'>{tght}</a>")
+        if i < n:
+            i = i+1
+        else:
+            await message.reply_text(f"<a href='{link}'>{tght}</a>")
