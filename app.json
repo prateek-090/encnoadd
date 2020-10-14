@@ -56,6 +56,16 @@
       "value": "down",
       "required": false
     },
+    "Mux_CMD_TRIGGER": {
+      "description": "single Mux command trigger",
+      "value": "mux",
+      "required": false
+    },
+    "Muxdo_CMD_TRIGGER": {
+      "description": "Mass mux command trigger",
+      "value": "domux",
+      "required": false
+    },
     "Mass_CMD_TRIGGER": {
       "description": "Mass Download command trigger",
       "value": "mass",
