@@ -28,7 +28,9 @@ from tobrot import (
     Clear_thumb_CMD_TRIGGER,
     TELEGRAM_CMD_TRIGGER,
     Mass_CMD_TRIGGER,
-    Scrapx_CMD_TRIGGER
+    Scrapx_CMD_TRIGGER,
+    Mux_CMD_TRIGGER,
+    Muxdo_CMD_TRIGGER
 )
 
 from pyrogram import (
