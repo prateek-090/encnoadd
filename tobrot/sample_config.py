@@ -46,3 +46,5 @@ class Config(object):
     TG_OFFENSIVE_API = os.environ.get("TG_OFFENSIVE_API", None)
     Mass_CMD_TRIGGER = os.environ.get("Mass_CMD_TRIGGER", "mass")
     Scrapx_CMD_TRIGGER = os.environ.get("Scrapx_CMD_TRIGGER", "scrapx")
+    Mux_CMD_TRIGGER = os.environ.get("Mux_CMD_TRIGGER", "mux")
+    Muxdo_CMD_TRIGGER = os.environ.get("Muxdo_CMD_TRIGGER", "domux")
